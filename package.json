@@ -24,6 +24,7 @@
     "typecheck": "npx tsc --noEmit && npx vue-tsc --noEmit"
   },
   "dependencies": {
+    "@vueuse/core": "^10.7.1",
     "viem": "^1.21.1",
     "vue": "^3.3.13",
     "vue-router": "^4.2.5"
