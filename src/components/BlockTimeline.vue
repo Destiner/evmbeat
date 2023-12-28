@@ -41,11 +41,22 @@
     </div>
     <div class="grid">
       <div
-        class="axis"
+        class="grid-section"
         v-for="label in GRID_LABELS"
       >
-        <div class="label">{{ label }}</div>
-        <div class="line" />
+        <div class="axis">
+          <div class="label">{{ label }}</div>
+          <div class="line" />
+        </div>
+        <div
+          class="marks"
+          v-if="label !== GRID_LABELS.at(-1)"
+        >
+          <div class="mark" />
+          <div class="mark" />
+          <div class="mark" />
+          <div class="mark" />
+        </div>
       </div>
     </div>
   </div>
@@ -119,10 +130,15 @@ function getFillLevel(block: Block): bigint {
 
   position: absolute;
   display: flex;
-  gap: calc(var(--axis-gap) - var(--axis-width));
+  gap: 16px;
   top: -40px;
-  left: 200px;
+  left: 140px;
   z-index: -1;
+}
+
+.grid-section {
+  display: flex;
+  gap: 20px;
 }
 
 .axis {
@@ -142,6 +158,18 @@ function getFillLevel(block: Block): bigint {
   height: 300px;
   width: 1px;
   background-color: #ffffff1a;
+}
+
+.marks {
+  display: flex;
+  gap: 40px;
+}
+
+.mark {
+  height: 10px;
+  width: 1px;
+  background-color: #ffffff1a;
+  margin-top: 25px;
 }
 
 .rows {
@@ -178,6 +206,7 @@ function getFillLevel(block: Block): bigint {
 }
 
 .row {
+  display: flex;
   color: var(--color);
 }
 
@@ -189,7 +218,7 @@ function getFillLevel(block: Block): bigint {
   display: flex;
   gap: 8px;
   align-items: center;
-  width: 200px;
+  width: 160px;
   color: #9d9d9d;
 }
 
