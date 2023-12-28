@@ -40,12 +40,13 @@
       </div>
     </div>
     <div class="grid">
-      <div class="line" />
-      <div class="line" />
-      <div class="line" />
-      <div class="line" />
-      <div class="line" />
-      <div class="line" />
+      <div
+        class="axis"
+        v-for="label in GRID_LABELS"
+      >
+        <div class="label">{{ label }}</div>
+        <div class="line" />
+      </div>
     </div>
   </div>
 </template>
@@ -58,6 +59,8 @@ import type { Block, Blocks, Chain } from '@/utils';
 const props = defineProps<{
   blocks: Blocks;
 }>();
+
+const GRID_LABELS = ['now', '-5s', '-10s', '-15s', '-20s', '-25s'];
 
 function getRecentBlocks(chainBlocks: Block[]) {
   const PERIOD = 25n;
@@ -113,11 +116,27 @@ function getFillLevel(block: Block): bigint {
 }
 
 .grid {
+  --axis-width: 40px;
+  --axis-gap: 200px;
+
   position: absolute;
   display: flex;
-  gap: 200px;
-  top: -20px;
+  gap: calc(var(--axis-gap) - var(--axis-width));
+  top: -40px;
   left: 200px;
+}
+
+.axis {
+  width: var(--axis-width);
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-size: 12px;
+  color: #ffffff33;
 }
 
 .line {
