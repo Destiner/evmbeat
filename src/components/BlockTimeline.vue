@@ -124,6 +124,7 @@ function getFillLevel(block: Block): bigint {
   gap: calc(var(--axis-gap) - var(--axis-width));
   top: -40px;
   left: 200px;
+  z-index: -1;
 }
 
 .axis {
@@ -156,53 +157,34 @@ function getFillLevel(block: Block): bigint {
   display: flex;
 }
 
-.row.ethereum {
-  color: #ffffff99;
-}
-.row.ethereum .block-fill {
-  background: #ffffff99;
+.row.ethereum,
+.row.zksync,
+.row.zora {
+  --color: #ffffff;
 }
 
 .row.optimism {
-  color: #ea343199;
-}
-.row.optimism .block-fill {
-  background: #ea343199;
+  --color: #ea3431;
 }
 
 .row.avalanche {
-  color: #d64f4999;
-}
-.row.avalanche .block-fill {
-  background: #d64f4999;
+  --color: #d64f49;
 }
 
 .row.polygon {
-  color: #7352d599;
-}
-.row.polygon .block-fill {
-  background: #7352d599;
+  --color: #7352d5;
 }
 
 .row.base {
-  color: #2e50ec99;
-}
-.row.base .block-fill {
-  background: #2e50ec99;
+  --color: #2e50ec;
 }
 
-.row.zksync {
-  color: #ffffff99;
-}
-.row.zksync .block-fill {
-  background: #ffffff99;
+.row {
+  color: var(--color);
 }
 
-.row.zora {
-  color: #ffffff99;
-}
-.row.zora .block-fill {
-  background: #ffffff99;
+.row .block-fill {
+  background: var(--color);
 }
 
 .chain {
@@ -225,6 +207,12 @@ function getFillLevel(block: Block): bigint {
 .blocks {
   display: flex;
   gap: 2px;
+  opacity: 0.4;
+}
+
+.row:hover .blocks {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .block {
