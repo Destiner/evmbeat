@@ -18,6 +18,8 @@
 
 body {
   font-family: var(--font-sans);
+  background: #0e0e0e;
+  color: #9d9d9d;
 }
 
 /* Reset */
