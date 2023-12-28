@@ -27,12 +27,12 @@ type Chain =
   | typeof ZORA;
 
 const CHAINS: Chain[] = [
-  AVALANCHE,
-  BASE,
   ETHEREUM,
-  OPTIMISM,
   POLYGON,
+  OPTIMISM,
+  BASE,
   ZKSYNC,
+  AVALANCHE,
   ZORA,
 ];
 
