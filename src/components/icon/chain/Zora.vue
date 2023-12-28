@@ -1,0 +1,56 @@
+<template>
+  <svg
+    width="100%"
+    height="100%"
+    viewBox="0 0 500 500"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      width="500"
+      height="500"
+      rx="250"
+      fill="url(#paint0_radial_540_17)"
+    />
+    <defs>
+      <radialGradient
+        id="paint0_radial_540_17"
+        cx="0"
+        cy="0"
+        r="1"
+        gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(340 137) rotate(131.998) scale(391.567 360.731)"
+      >
+        <stop stop-color="#FFEFF6" />
+        <stop
+          offset="0.177577"
+          stop-color="#D8BDEA"
+        />
+        <stop
+          offset="0.36615"
+          stop-color="#5884F6"
+        />
+        <stop
+          offset="0.544507"
+          stop-color="#3A64D1"
+        />
+        <stop
+          offset="0.726324"
+          stop-color="#35203A"
+        />
+        <stop
+          offset="0.820569"
+          stop-color="#261115"
+        />
+        <stop
+          offset="0.901042"
+          stop-color="#4B251C"
+        />
+        <stop
+          offset="1"
+          stop-color="#875439"
+        />
+      </radialGradient>
+    </defs>
+  </svg>
+</template>
