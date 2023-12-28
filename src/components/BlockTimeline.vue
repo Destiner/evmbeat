@@ -65,7 +65,6 @@ const GRID_LABELS = ['now', '-5s', '-10s', '-15s', '-20s', '-25s'];
 function getRecentBlocks(chainBlocks: Block[]) {
   const PERIOD = 25n;
   const now = BigInt(Date.now()) / 1000n;
-  // const now = 1703710807n;
   const recentBlocks = chainBlocks.filter(
     (block) => now - block.timestamp < PERIOD,
   );
@@ -90,7 +89,6 @@ function getTimeSinceLastBlock(chain: Chain) {
     return block;
   });
   const now = BigInt(Date.now()) / 1000n;
-  // const now = 1703710807n;
   return now - lastBlock.timestamp;
 }
 

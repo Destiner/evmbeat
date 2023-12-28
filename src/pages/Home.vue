@@ -71,6 +71,9 @@ async function fetch(): Promise<void> {
       blockNumber++
     ) {
       const block = await service.getBlock(blockNumber);
+      if (!block) {
+        break;
+      }
       blocks.value[chain].push(block);
     }
     isFetching.value[chain] = false;

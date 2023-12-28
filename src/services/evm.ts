@@ -20,17 +20,21 @@ class Service {
     return await this.client.getBlockNumber();
   }
 
-  async getBlock(number: bigint): Promise<Block> {
-    const block = await this.client.getBlock({
-      blockNumber: number,
-    });
-    return {
-      number: block.number,
-      timestamp: block.timestamp,
-      gasUsed: block.gasUsed,
-      gasLimit: block.gasLimit,
-      transactions: block.transactions.length,
-    };
+  async getBlock(number: bigint): Promise<Block | null> {
+    try {
+      const block = await this.client.getBlock({
+        blockNumber: number,
+      });
+      return {
+        number: block.number,
+        timestamp: block.timestamp,
+        gasUsed: block.gasUsed,
+        gasLimit: block.gasLimit,
+        transactions: block.transactions.length,
+      };
+    } catch {
+      return null;
+    }
   }
 }
 
