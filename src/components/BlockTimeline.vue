@@ -240,6 +240,7 @@ function getFillLevel(block: Block): bigint {
   display: flex;
   gap: 8px;
   align-items: center;
+  min-width: 160px;
   width: 160px;
   color: #9d9d9d;
 }
