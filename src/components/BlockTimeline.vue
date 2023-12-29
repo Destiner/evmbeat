@@ -160,7 +160,7 @@ function getFillLevel(block: Block): bigint {
 }
 
 .line {
-  height: 300px;
+  height: 480px;
   width: 1px;
   background-color: #ffffff1a;
 }
@@ -190,12 +190,21 @@ function getFillLevel(block: Block): bigint {
 
 .row.ethereum,
 .row.zksync,
-.row.zora {
+.row.zora,
+.row.linea {
   --color: #ffffff;
 }
 
 .row.optimism {
   --color: #ea3431;
+}
+
+.row.arbitrum {
+  --color: #12aaff;
+}
+
+.row.arbitrum-nova {
+  --color: #ef8220;
 }
 
 .row.avalanche {
@@ -208,6 +217,14 @@ function getFillLevel(block: Block): bigint {
 
 .row.base {
   --color: #2e50ec;
+}
+
+.row.mantle {
+  --color: #77b1ad;
+}
+
+.row.scroll {
+  --color: #f9dcb5;
 }
 
 .row {
