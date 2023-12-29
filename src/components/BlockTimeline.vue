@@ -21,21 +21,26 @@
             ).toString()}px`,
           }"
         >
-          <div
-            v-for="block in getRecentBlocks(blocks[chain])"
-            :key="block.number.toString()"
-            class="block"
-            :style="{
-              width: `${(getBlockTime(chain, block) * 40n - 2n).toString()}px`,
-            }"
-          >
+          <TransitionGroup name="blocks">
             <div
-              class="block-fill"
+              v-for="block in getRecentBlocks(blocks[chain])"
+              :key="block.number.toString()"
+              class="block"
               :style="{
-                width: `${getFillLevel(block).toString()}%`,
+                width: `${(
+                  getBlockTime(chain, block) * 40n -
+                  2n
+                ).toString()}px`,
               }"
-            />
-          </div>
+            >
+              <div
+                class="block-fill"
+                :style="{
+                  width: `${getFillLevel(block).toString()}%`,
+                }"
+              />
+            </div>
+          </TransitionGroup>
         </div>
       </div>
     </div>
@@ -240,6 +245,15 @@ function getFillLevel(block: Block): bigint {
 .row:hover .blocks {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
+}
+
+.blocks-enter-active,
+.blocks-leave-active {
+  transition: all 0.5s ease;
+}
+
+.blocks-enter-from {
+  opacity: 0;
 }
 
 .block {
