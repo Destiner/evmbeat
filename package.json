@@ -24,6 +24,7 @@
     "typecheck": "npx tsc --noEmit && npx vue-tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.0.8",
     "@vueuse/core": "^10.7.1",
     "viem": "^1.21.1",
     "vue": "^3.3.13",
