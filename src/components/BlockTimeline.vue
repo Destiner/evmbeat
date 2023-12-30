@@ -232,10 +232,6 @@ function getFillLevel(block: Block): bigint {
   color: var(--color);
 }
 
-.row .block-fill {
-  background: var(--color);
-}
-
 .chain {
   display: flex;
   gap: 8px;
@@ -286,5 +282,6 @@ function getFillLevel(block: Block): bigint {
 .block-fill {
   height: 100%;
   border-radius: 2px 0 0 2px;
+  background: var(--color);
 }
 </style>
