@@ -100,6 +100,16 @@ function getChainName(chain: Chain): string {
   return data.name;
 }
 
+function getChainId(chain: Chain): number {
+  const data = getChainData(chain);
+  return data.id;
+}
+
+function getChainCurrency(chain: Chain): string {
+  const data = getChainData(chain);
+  return data.nativeCurrency.symbol;
+}
+
 function getChainAlias(chain: Chain): string {
   switch (chain) {
     case ARBITRUM_NOVA:
@@ -146,5 +156,7 @@ export {
   getChainData,
   getChainName,
   getChainAlias,
+  getChainId,
+  getChainCurrency,
 };
 export type { Block, Blocks, Chain };

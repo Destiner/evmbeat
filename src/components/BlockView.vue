@@ -59,6 +59,7 @@
 
 <script setup lang="ts">
 import { Tooltip } from 'radix-vue/namespaced';
+
 import type { Block } from '@/utils';
 
 const props = defineProps<{

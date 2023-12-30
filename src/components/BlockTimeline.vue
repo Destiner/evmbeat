@@ -9,10 +9,10 @@
           [getChainAlias(chain)]: true,
         }"
       >
-        <div class="chain">
-          <div class="icon"><ChainIcon :chain="chain" /></div>
-          <div class="name">{{ getChainName(chain) }}</div>
-        </div>
+        <ChainView
+          :chain="chain"
+          :blocks="blocks[chain]"
+        />
         <div
           class="blocks"
           :style="{
@@ -57,8 +57,9 @@
 
 <script setup lang="ts">
 import BlockView from './BlockView.vue';
-import ChainIcon from './ChainIcon.vue';
-import { CHAINS, getChainAlias, getChainName } from '@/utils';
+import ChainView from './ChainView.vue';
+
+import { CHAINS, getChainAlias } from '@/utils';
 import type { Block, Blocks, Chain } from '@/utils';
 
 const props = defineProps<{
@@ -200,32 +201,6 @@ function getTimeSinceLastBlock(chain: Chain) {
 .row {
   display: flex;
   color: var(--color);
-}
-
-.chain {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  min-width: 160px;
-  width: 160px;
-  color: #9d9d9d;
-  text-transform: lowercase;
-  opacity: 0.75;
-  cursor: pointer;
-}
-
-.row:hover .chain {
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
-}
-
-.name {
-  font-size: 12px;
 }
 
 .blocks {
