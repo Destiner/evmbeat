@@ -1,4 +1,5 @@
-import type { Chain as ChainData } from 'viem';
+import { http, webSocket } from 'viem';
+import type { Chain as ChainData, Transport } from 'viem';
 import {
   arbitrum,
   arbitrumNova,
@@ -95,6 +96,35 @@ function getChainData(chain: Chain): ChainData {
   }
 }
 
+function getChainTransport(chain: Chain): Transport {
+  switch (chain) {
+    case ARBITRUM_NOVA:
+      return http();
+    case ARBITRUM_ONE:
+      return http();
+    case AVALANCHE:
+      return http();
+    case BASE:
+      return http();
+    case ETHEREUM:
+      return http();
+    case LINEA:
+      return http();
+    case OPTIMISM:
+      return http();
+    case POLYGON:
+      return http();
+    case POLYGON_ZK_EVM:
+      return http();
+    case SCROLL:
+      return webSocket();
+    case ZKSYNC:
+      return webSocket();
+    case ZORA:
+      return webSocket();
+  }
+}
+
 function getChainName(chain: Chain): string {
   const data = getChainData(chain);
   return data.name;
@@ -158,5 +188,6 @@ export {
   getChainAlias,
   getChainId,
   getChainCurrency,
+  getChainTransport,
 };
 export type { Block, Blocks, Chain };

@@ -1,7 +1,7 @@
-import { createPublicClient, http } from 'viem';
+import { createPublicClient } from 'viem';
 import type { PublicClient } from 'viem';
 
-import { getChainData } from '@/utils';
+import { getChainData, getChainTransport } from '@/utils';
 import type { Block, Chain } from '@/utils';
 
 class Service {
@@ -12,7 +12,7 @@ class Service {
     this.chain = chain;
     this.client = createPublicClient({
       chain: getChainData(chain),
-      transport: http(),
+      transport: getChainTransport(chain),
     });
   }
 
