@@ -232,11 +232,11 @@ function getTimeSinceLastBlock(chain: Chain) {
   display: flex;
   gap: 2px;
   opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .row:hover .blocks {
   opacity: 1;
-  transition: opacity 0.2s ease-in-out;
 }
 
 .blocks-enter-active,
