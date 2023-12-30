@@ -63,6 +63,7 @@ import { CHAINS, getChainAlias } from '@/utils';
 import type { Block, Blocks, Chain } from '@/utils';
 
 const props = defineProps<{
+  timestamp: number;
   blocks: Blocks;
 }>();
 
@@ -70,7 +71,7 @@ const GRID_LABELS = ['now', '-5s', '-10s', '-15s', '-20s', '-25s'];
 
 function getRecentBlocks(chainBlocks: Block[]) {
   const PERIOD = 25n;
-  const now = BigInt(Date.now()) / 1000n;
+  const now = BigInt(props.timestamp) / 1000n;
   const recentBlocks = chainBlocks.filter(
     (block) => now - block.timestamp < PERIOD,
   );
@@ -94,7 +95,7 @@ function getTimeSinceLastBlock(chain: Chain) {
     if (block.number < b.number) return b;
     return block;
   });
-  const now = BigInt(Date.now()) / 1000n;
+  const now = BigInt(props.timestamp) / 1000n;
   return now - lastBlock.timestamp;
 }
 </script>

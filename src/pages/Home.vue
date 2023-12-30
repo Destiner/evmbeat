@@ -1,13 +1,16 @@
 <template>
   <div class="page">
     <div class="content">
-      <BlockTimeline :blocks="blocks" />
+      <BlockTimeline
+        :timestamp="timestamp"
+        :blocks="blocks"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useIntervalFn } from '@vueuse/core';
+import { useIntervalFn, useTimestamp } from '@vueuse/core';
 import { ref } from 'vue';
 
 import BlockTimeline from '@/components/BlockTimeline.vue';
@@ -20,6 +23,8 @@ const INIT_BLOCKS = 5n;
 
 const isFetching = ref<Record<Chain, boolean>>(initIsFetching());
 const blocks = ref<Blocks>(initBlocks());
+
+const timestamp = useTimestamp();
 
 useIntervalFn(
   () => {
