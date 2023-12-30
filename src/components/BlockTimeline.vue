@@ -239,6 +239,14 @@ function getFillLevel(block: Block): bigint {
   min-width: 160px;
   width: 160px;
   color: #9d9d9d;
+  text-transform: lowercase;
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+.row:hover .chain {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .icon {

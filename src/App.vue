@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import '@fontsource/ibm-plex-mono';
+</script>
+
 <style>
 :root {
   --font-sans: -apple-system, 'BlinkMacSystemFont', avenir next, avenir,
@@ -12,12 +16,12 @@
   --font-serif: 'Iowan Old Style', 'Apple Garamond', 'Baskerville',
     'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro', serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-mono: 'Menlo', 'Consolas', 'Monaco', 'Liberation Mono',
+  --font-mono: 'IBM Plex Mono', 'Menlo', 'Consolas', 'Monaco', 'Liberation Mono',
     'Lucida Console', monospace;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   background: #0e0e0e;
   color: #9d9d9d;
 }
