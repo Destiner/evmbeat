@@ -22,24 +22,12 @@
           }"
         >
           <TransitionGroup name="blocks">
-            <div
+            <BlockView
               v-for="block in getRecentBlocks(blocks[chain])"
               :key="block.number.toString()"
-              class="block"
-              :style="{
-                width: `${(
-                  getBlockTime(chain, block) * 40n -
-                  2n
-                ).toString()}px`,
-              }"
-            >
-              <div
-                class="block-fill"
-                :style="{
-                  width: `${getFillLevel(block).toString()}%`,
-                }"
-              />
-            </div>
+              :block="block"
+              :blocks="blocks[chain]"
+            />
           </TransitionGroup>
         </div>
       </div>
@@ -68,7 +56,8 @@
 </template>
 
 <script setup lang="ts">
-import ChainIcon from '@/components/ChainIcon.vue';
+import BlockView from './BlockView.vue';
+import ChainIcon from './ChainIcon.vue';
 import { CHAINS, getChainAlias, getChainName } from '@/utils';
 import type { Block, Blocks, Chain } from '@/utils';
 
@@ -106,21 +95,6 @@ function getTimeSinceLastBlock(chain: Chain) {
   });
   const now = BigInt(Date.now()) / 1000n;
   return now - lastBlock.timestamp;
-}
-
-function getBlockTime(chain: Chain, block: Block) {
-  const number = BigInt(block.number);
-  const previousBlock = props.blocks[chain].find(
-    (b) => BigInt(b.number) === number - 1n,
-  );
-  if (!previousBlock) return 0n;
-  return block.timestamp - previousBlock.timestamp;
-}
-
-function getFillLevel(block: Block): bigint {
-  const gasUsed = BigInt(block.gasUsed);
-  const gasLimit = BigInt(block.gasLimit);
-  return (100n * gasUsed) / gasLimit;
 }
 </script>
 
@@ -276,20 +250,5 @@ function getFillLevel(block: Block): bigint {
 
 .blocks-enter-from {
   opacity: 0;
-}
-
-.block {
-  height: 20px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  font-size: 8px;
-  padding: 1px;
-}
-
-.block-fill {
-  height: 100%;
-  border-radius: 2px 0 0 2px;
-  background: var(--color);
 }
 </style>
