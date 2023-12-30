@@ -5,7 +5,6 @@
   <IconBase v-else-if="chain === BASE" />
   <IconEthereum v-else-if="chain === ETHEREUM" />
   <IconLinea v-else-if="chain === LINEA" />
-  <IconMantle v-else-if="chain === MANTLE" />
   <IconOptimism v-else-if="chain === OPTIMISM" />
   <IconPolygon v-else-if="chain === POLYGON" />
   <IconPolygon v-else-if="chain === POLYGON_ZK_EVM" />
@@ -22,7 +21,6 @@ import {
   BASE,
   ETHEREUM,
   LINEA,
-  MANTLE,
   OPTIMISM,
   POLYGON,
   POLYGON_ZK_EVM,
@@ -38,7 +36,6 @@ import IconAvalanche from './icon/chain/Avalanche.vue';
 import IconBase from './icon/chain/Base.vue';
 import IconEthereum from './icon/chain/Ethereum.vue';
 import IconLinea from './icon/chain/Linea.vue';
-import IconMantle from './icon/chain/Mantle.vue';
 import IconOptimism from './icon/chain/Optimism.vue';
 import IconPolygon from './icon/chain/Polygon.vue';
 import IconScroll from './icon/chain/Scroll.vue';

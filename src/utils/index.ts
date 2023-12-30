@@ -6,7 +6,6 @@ import {
   base,
   linea,
   mainnet,
-  mantle,
   optimism,
   polygon,
   polygonZkEvm,
@@ -21,7 +20,6 @@ const AVALANCHE = 43114;
 const BASE = 8453;
 const ETHEREUM = 1;
 const LINEA = 59144;
-const MANTLE = 5000;
 const OPTIMISM = 10;
 const POLYGON = 137;
 const POLYGON_ZK_EVM = 1101;
@@ -36,7 +34,6 @@ type Chain =
   | typeof BASE
   | typeof ETHEREUM
   | typeof LINEA
-  | typeof MANTLE
   | typeof OPTIMISM
   | typeof POLYGON
   | typeof POLYGON_ZK_EVM
@@ -52,7 +49,6 @@ const CHAINS: Chain[] = [
   ARBITRUM_NOVA,
   BASE,
   ZKSYNC,
-  MANTLE,
   AVALANCHE,
   LINEA,
   POLYGON_ZK_EVM,
@@ -84,8 +80,6 @@ function getChainData(chain: Chain): ChainData {
       return mainnet;
     case LINEA:
       return linea;
-    case MANTLE:
-      return mantle;
     case OPTIMISM:
       return optimism;
     case POLYGON:
@@ -120,8 +114,6 @@ function getChainAlias(chain: Chain): string {
       return 'ethereum';
     case LINEA:
       return 'linea';
-    case MANTLE:
-      return 'mantle';
     case OPTIMISM:
       return 'optimism';
     case POLYGON:
@@ -145,7 +137,6 @@ export {
   CHAINS,
   ETHEREUM,
   LINEA,
-  MANTLE,
   OPTIMISM,
   POLYGON,
   POLYGON_ZK_EVM,

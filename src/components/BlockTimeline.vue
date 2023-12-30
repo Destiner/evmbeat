@@ -134,7 +134,7 @@ function getTimeSinceLastBlock(chain: Chain) {
 }
 
 .line {
-  height: 480px;
+  height: 420px;
   width: 1px;
   background-color: #ffffff1a;
 }
@@ -191,10 +191,6 @@ function getTimeSinceLastBlock(chain: Chain) {
 
 .row.base {
   --color: #2e50ec;
-}
-
-.row.mantle {
-  --color: #77b1ad;
 }
 
 .row.scroll {

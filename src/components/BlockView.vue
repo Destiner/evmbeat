@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Block, Chain } from '@/utils';
+import type { Block } from '@/utils';
 
 const props = defineProps<{
   blocks: Block[];
