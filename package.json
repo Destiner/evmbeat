@@ -26,6 +26,7 @@
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@vueuse/core": "^10.7.1",
+    "radix-vue": "^1.2.5",
     "viem": "^1.21.1",
     "vue": "^3.3.13",
     "vue-router": "^4.2.5"
