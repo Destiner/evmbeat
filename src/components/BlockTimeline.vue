@@ -34,16 +34,16 @@
     </div>
     <div class="grid">
       <div
-        class="grid-section"
         v-for="label in GRID_LABELS"
+        class="grid-section"
       >
         <div class="axis">
           <div class="label">{{ label }}</div>
           <div class="line" />
         </div>
         <div
-          class="marks"
           v-if="label !== GRID_LABELS.at(-1)"
+          class="marks"
         >
           <div class="mark" />
           <div class="mark" />
@@ -56,11 +56,11 @@
 </template>
 
 <script setup lang="ts">
-import BlockView from './BlockView.vue';
-import ChainView from './ChainView.vue';
-
 import { CHAINS, getChainAlias } from '@/utils';
 import type { Block, Blocks, Chain } from '@/utils';
+
+import BlockView from './BlockView.vue';
+import ChainView from './ChainView.vue';
 
 const props = defineProps<{
   timestamp: number;
@@ -109,12 +109,12 @@ function getTimeSinceLastBlock(chain: Chain) {
   --axis-width: 40px;
   --axis-gap: 200px;
 
-  position: absolute;
   display: flex;
-  gap: 16px;
+  position: absolute;
+  z-index: -1;
   top: -40px;
   left: 140px;
-  z-index: -1;
+  gap: 16px;
 }
 
 .grid-section {
@@ -123,21 +123,21 @@ function getTimeSinceLastBlock(chain: Chain) {
 }
 
 .axis {
-  width: var(--axis-width);
   display: flex;
-  gap: 10px;
   flex-direction: column;
   align-items: center;
+  width: var(--axis-width);
+  gap: 10px;
 }
 
 .label {
+  color: #fff3;
   font-size: 12px;
-  color: #ffffff33;
 }
 
 .line {
-  height: 420px;
   width: 1px;
+  height: 760px;
   background-color: #ffffff1a;
 }
 
@@ -147,10 +147,10 @@ function getTimeSinceLastBlock(chain: Chain) {
 }
 
 .mark {
-  height: 10px;
   width: 1px;
-  background-color: #ffffff1a;
+  height: 10px;
   margin-top: 25px;
+  background-color: #ffffff1a;
 }
 
 .rows {
@@ -168,7 +168,7 @@ function getTimeSinceLastBlock(chain: Chain) {
 .row.zksync,
 .row.zora,
 .row.linea {
-  --color: #ffffff;
+  --color: #fff;
 }
 
 .row.optimism {
@@ -199,6 +199,50 @@ function getTimeSinceLastBlock(chain: Chain) {
   --color: #f9dcb5;
 }
 
+.row.gnosis {
+  --color: #486858;
+}
+
+.row.fantom {
+  --color: #3367f6;
+}
+
+.row.canto {
+  --color: #74f8a2;
+}
+
+.row.aurora {
+  --color: #8fd460;
+}
+
+.row.moonbeam {
+  --color: #bb2e71;
+}
+
+.row.kava {
+  --color: #ff232f;
+}
+
+.row.pulsechain {
+  --color: #5cc9fa;
+}
+
+.row.klaytn {
+  --color: ##eb4626;
+}
+
+.row.cronos {
+  --color: #4697f3;
+}
+
+.row.astar {
+  --color: #8beafc;
+}
+
+.row.manta {
+  --color: #5298eb;
+}
+
 .row {
   display: flex;
   color: var(--color);
@@ -206,9 +250,9 @@ function getTimeSinceLastBlock(chain: Chain) {
 
 .blocks {
   display: flex;
-  gap: 2px;
-  opacity: 0.4;
   transition: opacity 0.2s ease-in-out;
+  opacity: 0.4;
+  gap: 2px;
 }
 
 .row:hover .blocks {
