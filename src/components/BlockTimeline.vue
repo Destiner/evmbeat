@@ -161,6 +161,12 @@ function getTimeSinceLastBlock(chain: Chain): bigint {
   overflow: hidden;
 }
 
+@media (width < 1200px) {
+  .rows {
+    overflow: initial;
+  }
+}
+
 .row {
   display: flex;
   color: var(--color);
