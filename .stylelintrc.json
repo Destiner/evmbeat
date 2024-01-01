@@ -5,8 +5,6 @@
     "stylelint-config-property-sort-order-smacss"
   ],
   "rules": {
-    "media-feature-name-allowed-list": ["width", "prefers-color-scheme"],
-    "declaration-colon-newline-after": null,
-    "value-list-comma-newline-after": null
+    "media-feature-name-allowed-list": ["width", "prefers-color-scheme"]
   }
 }
