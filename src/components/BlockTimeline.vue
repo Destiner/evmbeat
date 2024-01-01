@@ -102,6 +102,10 @@ function getTimeSinceLastBlock(chain: Chain): bigint {
 </script>
 
 <style scoped>
+.timeline {
+  position: relative;
+}
+
 .grid {
   --axis-width: 40px;
   --axis-gap: 200px;
