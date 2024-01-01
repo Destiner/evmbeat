@@ -94,8 +94,8 @@ async function fetch(): Promise<void> {
 }
 
 .content {
-  margin-top: 20px;
   width: 100%;
   max-width: 1200px;
+  margin-top: 20px;
 }
 </style>

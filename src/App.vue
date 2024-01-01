@@ -31,18 +31,18 @@ import '@fontsource/ibm-plex-mono';
 }
 
 body {
-  font-family: var(--font-mono);
   background: #0e0e0e;
   color: #9d9d9d;
+  font-family: var(--font-mono);
 }
 
 header {
-  min-height: 240px;
   display: flex;
+  gap: 8px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 8px;
+  min-height: 240px;
   font-size: 14px;
 }
 
@@ -52,10 +52,10 @@ header {
 }
 
 footer {
-  min-height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 160px;
   font-size: 12px;
 }
 

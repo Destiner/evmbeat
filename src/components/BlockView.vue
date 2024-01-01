@@ -67,7 +67,7 @@ const props = defineProps<{
   block: Block;
 }>();
 
-function getBlockTime(block: Block) {
+function getBlockTime(block: Block): bigint {
   const number = BigInt(block.number);
   const previousBlock = props.blocks.find(
     (b) => BigInt(b.number) === number - 1n,
@@ -99,11 +99,11 @@ function formatUnixTimestampToHHmmss(unixTimestamp: bigint): string {
 <style scoped>
 .block {
   height: 20px;
+  padding: 1px;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
   font-size: 8px;
-  padding: 1px;
 }
 
 .block-fill {
@@ -113,41 +113,42 @@ function formatUnixTimestampToHHmmss(unixTimestamp: bigint): string {
 }
 
 .info {
-  min-width: 200px;
   display: flex;
   gap: 20px;
   flex-direction: column;
-  border-radius: 4px;
-  font-size: 14px;
-  border: 1px solid #ffffff1a;
+  min-width: 200px;
   padding: 8px;
-  background: #0e0e0e;
-  user-select: none;
+  animation-name: slide-up-and-fade;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #ffffff1a;
+  border-radius: 4px;
+  background: #0e0e0e;
+  font-size: 14px;
+  user-select: none;
   will-change: transform, opacity;
-  animation-name: slideUpAndFade;
 }
 
 .info .header {
-  font-weight: bold;
   font-size: 12px;
+  font-weight: bold;
 }
 
 .info .stat {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-@keyframes slideUpAndFade {
+@keyframes slide-up-and-fade {
   from {
-    opacity: 0;
     transform: translateY(2px);
+    opacity: 0;
   }
+
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 </style>

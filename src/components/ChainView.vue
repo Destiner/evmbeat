@@ -36,14 +36,14 @@
               <div class="stat">
                 <div class="stat-label">Time since last block</div>
                 <div
-                  class="stat-value"
                   v-if="timeSinceLastBlock"
+                  class="stat-value"
                 >
                   {{ timeSinceLastBlock }}
                 </div>
                 <div
-                  class="stat-value"
                   v-else
+                  class="stat-value"
                 >
                   —
                 </div>
@@ -65,10 +65,11 @@
 <script setup lang="ts">
 import { Tooltip } from 'radix-vue/namespaced';
 import { computed } from 'vue';
-import ChainIcon from './ChainIcon.vue';
 
 import { getChainName, getChainId, getChainCurrency } from '@/utils';
 import type { Block, Chain } from '@/utils';
+
+import ChainIcon from './ChainIcon.vue';
 
 const props = defineProps<{
   chain: Chain;
@@ -110,17 +111,17 @@ const blockTime = computed(() => {
   display: flex;
   gap: 8px;
   align-items: center;
-  min-width: 160px;
   width: 160px;
+  min-width: 160px;
+  opacity: 0.75;
   color: #9d9d9d;
   text-transform: lowercase;
-  opacity: 0.75;
   cursor: pointer;
 }
 
 .row:hover .chain {
-  opacity: 1;
   transition: opacity 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .icon {
@@ -134,32 +135,33 @@ const blockTime = computed(() => {
 
 .info {
   min-width: 240px;
-  border-radius: 4px;
-  font-size: 14px;
-  border: 1px solid #ffffff1a;
   padding: 8px;
-  background: #0e0e0e;
-  user-select: none;
+  animation-name: slide-up-and-fade;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #ffffff1a;
+  border-radius: 4px;
+  background: #0e0e0e;
+  font-size: 14px;
+  user-select: none;
   will-change: transform, opacity;
-  animation-name: slideUpAndFade;
 }
 
 .info .stat {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-@keyframes slideUpAndFade {
+@keyframes slide-up-and-fade {
   from {
-    opacity: 0;
     transform: translateY(2px);
+    opacity: 0;
   }
+
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 </style>

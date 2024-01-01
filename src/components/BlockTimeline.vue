@@ -34,7 +34,8 @@
     </div>
     <div class="grid">
       <div
-        v-for="label in GRID_LABELS"
+        v-for="(label, index) in GRID_LABELS"
+        :key="index"
         class="grid-section"
       >
         <div class="axis">
@@ -69,7 +70,7 @@ const props = defineProps<{
 
 const GRID_LABELS = ['now', '-5s', '-10s', '-15s', '-20s', '-25s'];
 
-function getRecentBlocks(chainBlocks: Block[]) {
+function getRecentBlocks(chainBlocks: Block[]): Block[] {
   const PERIOD = 25n;
   const now = BigInt(props.timestamp) / 1000n;
   const recentBlocks = chainBlocks.filter(
@@ -88,7 +89,7 @@ function getRecentBlocks(chainBlocks: Block[]) {
   return recentBlocks;
 }
 
-function getTimeSinceLastBlock(chain: Chain) {
+function getTimeSinceLastBlock(chain: Chain): bigint {
   const chainBlocks = props.blocks[chain];
   if (chainBlocks.length === 0) return 0n;
   const lastBlock = chainBlocks.reduce((block, b) => {
@@ -101,20 +102,16 @@ function getTimeSinceLastBlock(chain: Chain) {
 </script>
 
 <style scoped>
-.timeline {
-  position: relative;
-}
-
 .grid {
   --axis-width: 40px;
   --axis-gap: 200px;
 
   display: flex;
+  gap: 16px;
   position: absolute;
   z-index: -1;
   top: -40px;
   left: 140px;
-  gap: 16px;
 }
 
 .grid-section {
@@ -124,10 +121,10 @@ function getTimeSinceLastBlock(chain: Chain) {
 
 .axis {
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
   width: var(--axis-width);
-  gap: 10px;
 }
 
 .label {
@@ -162,6 +159,7 @@ function getTimeSinceLastBlock(chain: Chain) {
 
 .row {
   display: flex;
+  color: var(--color);
 }
 
 .row.ethereum,
@@ -243,16 +241,11 @@ function getTimeSinceLastBlock(chain: Chain) {
   --color: #5298eb;
 }
 
-.row {
-  display: flex;
-  color: var(--color);
-}
-
 .blocks {
   display: flex;
+  gap: 2px;
   transition: opacity 0.2s ease-in-out;
   opacity: 0.4;
-  gap: 2px;
 }
 
 .row:hover .blocks {
