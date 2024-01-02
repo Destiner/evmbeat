@@ -5,7 +5,10 @@
       <div class="subtitle">Live stats for 20+ EVM networks</div>
     </header>
     <router-view />
-    <footer>Inspired by Mintscan. Not affiliated with L2Beat.</footer>
+    <footer>
+      Inspired by Mintscan. Not affiliated with L2Beat.&nbsp;
+      <a href="https://github.com/Destiner/evmbeat">MIT-licensed</a>
+    </footer>
   </div>
 </template>
 
@@ -28,6 +31,10 @@ import '@fontsource/ibm-plex-mono';
 #app {
   display: flex;
   flex-direction: column;
+}
+
+a {
+  color: #9d9d9d;
 }
 
 body {
