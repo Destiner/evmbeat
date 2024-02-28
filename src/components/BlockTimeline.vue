@@ -16,7 +16,9 @@
         <div
           class="blocks"
           :style="{
-            'transform': `translateX(${(getTimeSinceLastBlock(chain) * 40n).toString()}px)`
+            transform: `translateX(${(
+              getTimeSinceLastBlock(chain) * 40n
+            ).toString()}px)`,
           }"
         >
           <TransitionGroup name="blocks">
