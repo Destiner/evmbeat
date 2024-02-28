@@ -17,11 +17,11 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "lint": "npm run lint:prettier && npm run lint:eslint && npm run lint:stylelint",
+    "lint": "bun run lint:prettier && bun run lint:eslint && bun run lint:stylelint",
     "lint:prettier": "prettier -c \"src/**/*.{json,js,ts,vue}\"",
     "lint:eslint": "eslint \"src/**/*.{js,ts,vue}\"",
     "lint:stylelint": "stylelint \"src/**/*.{css,vue}\"",
-    "typecheck": "npx tsc --noEmit && npx vue-tsc --noEmit"
+    "typecheck": "tsc --noEmit && vue-tsc --noEmit"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.0.8",
